@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonus — Smart Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>Sonus</h1>
+      <span class="subtitle">Smart Home Assistant</span>
+    </div>
+    <div class="header-right">
+      <div class="token-usage-wrap" title="Daily token usage">
+        <div class="token-usage-bar"><div class="token-usage-fill" id="token-usage-fill"></div></div>
+        <span id="token-usage" class="token-counter">—</span>
+      </div>
+      <span id="connection-status" class="status disconnected">Disconnected</span>
+    </div>
+  </header>
+
+  <main>
+    <aside id="device-panel">
+      <h2>Devices</h2>
+
+      <div class="device-card" id="card-lock.bedroom" data-device="lock.bedroom">
+        <div class="device-icon" id="icon-lock.bedroom">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path class="lock-shackle" d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="device-info">
+          <span class="device-name">Bedroom Lock</span>
+          <span class="device-state" id="state-lock.bedroom">Locked</span>
+        </div>
+        <label class="device-toggle" title="Enable/disable device">
+          <input type="checkbox" checked data-toggle="lock.bedroom" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="device-card" id="card-bulb.lamp1" data-device="bulb.lamp1">
+        <div class="device-icon bulb-icon" id="icon-bulb.lamp1">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2">
+            <path class="bulb-body" d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" fill="none"/>
+            <path d="M9 18h6" fill="none"/>
+            <path d="M10 22h4" fill="none"/>
+          </svg>
+        </div>
+        <div class="device-info">
+          <span class="device-name">Lamp 1</span>
+          <span class="device-state" id="state-bulb.lamp1">Off</span>
+        </div>
+        <div class="color-indicator" id="color-bulb.lamp1"></div>
+        <label class="device-toggle" title="Enable/disable device">
+          <input type="checkbox" checked data-toggle="bulb.lamp1" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="device-card" id="card-bulb.lamp2" data-device="bulb.lamp2">
+        <div class="device-icon bulb-icon" id="icon-bulb.lamp2">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2">
+            <path class="bulb-body" d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" fill="none"/>
+            <path d="M9 18h6" fill="none"/>
+            <path d="M10 22h4" fill="none"/>
+          </svg>
+        </div>
+        <div class="device-info">
+          <span class="device-name">Lamp 2</span>
+          <span class="device-state" id="state-bulb.lamp2">Off</span>
+        </div>
+        <div class="color-indicator" id="color-bulb.lamp2"></div>
+        <label class="device-toggle" title="Enable/disable device">
+          <input type="checkbox" checked data-toggle="bulb.lamp2" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="device-card" id="card-fan.bedroom" data-device="fan.bedroom">
+        <div class="device-icon" id="icon-fan.bedroom">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0"/>
+            <path class="fan-blade" d="M12 2C8 2 8 8 12 11"/>
+            <path class="fan-blade" d="M22 12c0-4-6-4-9 0"/>
+            <path class="fan-blade" d="M12 22c4 0 4-6 0-9"/>
+            <path class="fan-blade" d="M2 12c0 4 6 4 9 0"/>
+          </svg>
+        </div>
+        <div class="device-info">
+          <span class="device-name">Bedroom Fan</span>
+          <span class="device-state" id="state-fan.bedroom">Off</span>
+        </div>
+        <label class="device-toggle" title="Enable/disable device">
+          <input type="checkbox" checked data-toggle="fan.bedroom" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="device-card" id="card-ac.bedroom" data-device="ac.bedroom">
+        <div class="device-icon" id="icon-ac.bedroom">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="12" rx="2"/>
+            <path d="M8 20c0-2 1-4 4-4s4 2 4 4"/>
+            <line x1="6" y1="10" x2="18" y2="10"/>
+          </svg>
+        </div>
+        <div class="device-info">
+          <span class="device-name">Bedroom AC</span>
+          <span class="device-state" id="state-ac.bedroom">Off</span>
+        </div>
+        <label class="device-toggle" title="Enable/disable device">
+          <input type="checkbox" checked data-toggle="ac.bedroom" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="device-card" id="card-spotify" data-device="spotify">
+        <div class="device-icon" id="icon-spotify">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <circle cx="12" cy="14" r="4"/>
+            <line x1="12" y1="6" x2="12.01" y2="6"/>
+          </svg>
+        </div>
+        <div class="device-info">
+          <span class="device-name">Speaker</span>
+          <span class="device-state" id="state-spotify">Not connected</span>
+          <span class="now-playing" id="now-playing"></span>
+          <div class="volume-bar" id="volume-bar">
+            <div class="volume-fill" id="volume-fill"></div>
+          </div>
+        </div>
+        <label class="device-toggle" title="Enable/disable device">
+          <input type="checkbox" checked data-toggle="spotify" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </aside>
+
+    <section id="chat-section">
+      <div id="chat-messages"></div>
+
+      <div id="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Talk to Sonus..." autocomplete="off" />
+        <button id="mic-btn" title="Hold to speak">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="1" width="6" height="11" rx="3"/>
+            <path d="M5 10a7 7 0 0 0 14 0"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+          </svg>
+        </button>
+        <button id="send-btn" title="Send message">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

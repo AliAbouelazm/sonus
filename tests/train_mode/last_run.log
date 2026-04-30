@@ -1,0 +1,228 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.0, pytest-9.0.2, pluggy-1.6.0 -- /opt/homebrew/opt/python@3.14/bin/python3.14
+cachedir: .pytest_cache
+rootdir: /Users/aliabouelazm/Desktop/sonus
+configfile: pytest.ini
+plugins: anyio-4.12.1, asyncio-1.3.0
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 47 items
+
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_stores_reading[0m
+
+tests/train_mode/test_biometric.py::test_stores_reading PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_builds_baseline_on_first_reading[0m
+
+tests/train_mode/test_biometric.py::test_builds_baseline_on_first_reading PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_baseline_updates_over_multiple_readings[0m
+
+tests/train_mode/test_biometric.py::test_baseline_updates_over_multiple_readings PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_no_intervention_on_normal_reading[0m
+
+tests/train_mode/test_biometric.py::test_no_intervention_on_normal_reading PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_high_stress_triggers_observation[0m
+
+tests/train_mode/test_biometric.py::test_high_stress_triggers_observation PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_stress_escalation_selects_lighting_intervention[0m
+
+tests/train_mode/test_biometric.py::test_stress_escalation_selects_lighting_intervention PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_hr_spike_selects_cooling_intervention[0m
+
+tests/train_mode/test_biometric.py::test_hr_spike_selects_cooling_intervention PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_no_action_in_demo_mode[0m
+
+tests/train_mode/test_biometric.py::test_no_action_in_demo_mode PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_outcome_scheduled_after_intervention[0m
+
+tests/train_mode/test_biometric.py::test_outcome_scheduled_after_intervention PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_approve_increases_confidence[0m
+
+tests/train_mode/test_confidence.py::test_approve_increases_confidence PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_always_gives_large_boost[0m
+
+tests/train_mode/test_confidence.py::test_always_gives_large_boost PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_no_decreases_confidence[0m
+
+tests/train_mode/test_confidence.py::test_no_decreases_confidence PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_never_destroys_confidence[0m
+
+tests/train_mode/test_confidence.py::test_never_destroys_confidence PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_undo_fast_large_penalty[0m
+
+tests/train_mode/test_confidence.py::test_undo_fast_large_penalty PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_confidence_clamped_at_1[0m
+
+tests/train_mode/test_confidence.py::test_confidence_clamped_at_1 PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_confidence_clamped_at_0[0m
+
+tests/train_mode/test_confidence.py::test_confidence_clamped_at_0 PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_multiple_approvals_accumulate[0m
+
+tests/train_mode/test_confidence.py::test_multiple_approvals_accumulate PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_denial_recorded_for_no_signal[0m
+
+tests/train_mode/test_confidence.py::test_denial_recorded_for_no_signal PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_no_denial_for_approve_signal[0m
+
+tests/train_mode/test_confidence.py::test_no_denial_for_approve_signal PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_decay_applied_to_stale_patterns[0m
+
+tests/train_mode/test_confidence.py::test_decay_applied_to_stale_patterns PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_no_decay_for_recently_reinforced[0m
+
+tests/train_mode/test_confidence.py::test_no_decay_for_recently_reinforced PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_decay_does_not_run_in_demo_mode[0m
+
+tests/train_mode/test_confidence.py::test_decay_does_not_run_in_demo_mode PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_denial_match_same_hour[0m
+
+tests/train_mode/test_confidence.py::test_denial_match_same_hour PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_denial_match_within_1_hour[0m
+
+tests/train_mode/test_confidence.py::test_denial_match_within_1_hour PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_denial_match_far_hour_not_suppressed[0m
+
+tests/train_mode/test_confidence.py::test_denial_match_far_hour_not_suppressed PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_few_integrations_normal_day[0m
+
+tests/train_mode/test_scenarios.py::test_few_integrations_normal_day PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_few_integrations_stress_triggers_lighting[0m
+
+tests/train_mode/test_scenarios.py::test_few_integrations_stress_triggers_lighting PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_few_integrations_pattern_and_biometric_together[0m
+
+tests/train_mode/test_scenarios.py::test_few_integrations_pattern_and_biometric_together   [1m🤖 WS autonomous_action[0m  pattern=[92m'Evening AC on'[0m  confidence=[96m0.92[0m
+      [2mdevice=[0m [93mbedroom_ac[0m  [2maction=[0m [92mturn_on[0m  params={}
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_few_integrations_confidence_feedback_loop[0m
+
+tests/train_mode/test_scenarios.py::test_few_integrations_confidence_feedback_loop PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_merged_biometrics_stored[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_merged_biometrics_stored PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_multiple_lights_dimmed[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_multiple_lights_dimmed PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_cooling_activates_fan_and_ac[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_cooling_activates_fan_and_ac PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_multiple_patterns_fire[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_multiple_patterns_fire   [1m🤖 WS autonomous_action[0m  pattern=[92m'Night routine - living_room_bulb'[0m  confidence=[96m0.91[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mset_color_temp[0m  params={'temp': 'warm'}
+  [1m🤖 WS autonomous_action[0m  pattern=[92m'Night routine - bedroom_bulb'[0m  confidence=[96m0.91[0m
+      [2mdevice=[0m [93mbedroom_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+  [1m🤖 WS autonomous_action[0m  pattern=[92m'Night routine - bedroom_ac'[0m  confidence=[96m0.91[0m
+      [2mdevice=[0m [93mbedroom_ac[0m  [2maction=[0m [92mturn_on[0m  params={}
+  [1m🤖 WS autonomous_action[0m  pattern=[92m'Night routine - living_room_fan'[0m  confidence=[96m0.91[0m
+      [2mdevice=[0m [93mliving_room_fan[0m  [2maction=[0m [92mturn_on[0m  params={}
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_experiment_lifecycle[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_experiment_lifecycle PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_confidence_decay_over_time[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_confidence_decay_over_time PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_observations_logged[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_observations_logged PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_many_integrations_ws_broadcasts_many_patterns[0m
+
+tests/train_mode/test_scenarios.py::test_many_integrations_ws_broadcasts_many_patterns   [1m🤖 WS autonomous_action[0m  pattern=[92m'Auto A'[0m  confidence=[96m0.92[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+  [1m🤖 WS autonomous_action[0m  pattern=[92m'Auto B'[0m  confidence=[96m0.88[0m
+      [2mdevice=[0m [93mbedroom_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+  [1m💡 WS pattern_suggestion[0m  pattern=[93m'Suggest C'[0m  confidence=[96m0.65[0m
+  [1m💡 WS pattern_suggestion[0m  pattern=[93m'Suggest D'[0m  confidence=[96m0.55[0m
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_no_patterns_no_actions[0m
+
+tests/train_mode/test_thinking.py::test_no_patterns_no_actions PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_pattern_matches_hour_range[0m
+
+tests/train_mode/test_thinking.py::test_pattern_matches_hour_range   [1m🤖 WS autonomous_action[0m  pattern=[92m'Evening lights'[0m  confidence=[96m0.90[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_pattern_does_not_match_outside_hour_range[0m
+
+tests/train_mode/test_thinking.py::test_pattern_does_not_match_outside_hour_range PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_weekday_pattern_skips_weekend[0m
+
+tests/train_mode/test_thinking.py::test_weekday_pattern_skips_weekend PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_suggestion_sent_for_medium_confidence_pattern[0m
+
+tests/train_mode/test_thinking.py::test_suggestion_sent_for_medium_confidence_pattern   [1m💡 WS pattern_suggestion[0m  pattern=[93m'Maybe evening lights'[0m  confidence=[96m0.60[0m
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_low_confidence_pattern_ignored[0m
+
+tests/train_mode/test_thinking.py::test_low_confidence_pattern_ignored PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_denied_pattern_suppressed_in_same_context[0m
+
+tests/train_mode/test_thinking.py::test_denied_pattern_suppressed_in_same_context PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_denied_pattern_runs_at_different_hour[0m
+
+tests/train_mode/test_thinking.py::test_denied_pattern_runs_at_different_hour   [1m🤖 WS autonomous_action[0m  pattern=[92m'Evening lights'[0m  confidence=[96m0.86[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_multiple_patterns_execute_independently[0m
+
+tests/train_mode/test_thinking.py::test_multiple_patterns_execute_independently   [1m🤖 WS autonomous_action[0m  pattern=[92m'Evening bedroom light'[0m  confidence=[96m0.92[0m
+      [2mdevice=[0m [93mbedroom_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+  [1m🤖 WS autonomous_action[0m  pattern=[92m'Evening main light'[0m  confidence=[96m0.90[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+PASSED
+[1m────────────────────────────────────────────────────────────────[0m
+[1m▶ TEST:[0m [96mtest_trigger_count_increments[0m
+
+tests/train_mode/test_thinking.py::test_trigger_count_increments   [1m🤖 WS autonomous_action[0m  pattern=[92m'Counted pattern'[0m  confidence=[96m0.90[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+  [1m🤖 WS autonomous_action[0m  pattern=[92m'Counted pattern'[0m  confidence=[96m0.90[0m
+      [2mdevice=[0m [93mliving_room_bulb[0m  [2maction=[0m [92mturn_on[0m  params={}
+PASSED
+
+============================== 47 passed in 1.10s ==============================
