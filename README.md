@@ -1,6 +1,8 @@
 # Sonus — Agentic Smart Home Assistant
 
-Sonus is an autonomous, AI-powered smart home assistant. It runs locally, connects to your real devices and services, and learns your preferences over time. Instead of rigid routines you program upfront, Sonus reasons about your environment and adapts to you.
+> **Python · FastAPI · React · scikit-learn · WebSockets · OpenAI/Anthropic APIs · SQLite**
+
+Sonus is an autonomous LLM-powered assistant that learns your environment and acts without being explicitly asked. It connects to your real devices and services (wearables, smart home, calendar, Spotify), reasons about your context, and executes multi-step routines on your behalf. A confidence system learns from your feedback over time, and local scikit-learn models train on your own biometric data to predict stress and sleep.
 
 **Example:**
 > "Set me up for studying."
