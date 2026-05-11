@@ -73,32 +73,20 @@ export default function Brain({ connected, devices = {}, isOver, onClickConnecte
 
           return (
             <g key={`line-${id}`}>
-              {/* Glow line (wider, low opacity) */}
-              {isHov && (
-                <line
-                  x1={bx} y1={by} x2={nx} y2={ny}
-                  stroke={meta.color}
-                  strokeWidth={6}
-                  strokeOpacity={0.08}
-                  strokeLinecap="round"
-                />
-              )}
-              {/* Main dashed line */}
               <line
                 x1={bx} y1={by} x2={nx} y2={ny}
                 stroke={meta.color}
-                strokeWidth={isHov ? 1.4 : 0.8}
-                strokeOpacity={isHov ? 0.7 : 0.2}
-                strokeDasharray="4 5"
+                strokeWidth={isHov ? 1.2 : 0.7}
+                strokeOpacity={isHov ? 0.6 : 0.18}
+                strokeDasharray="3 5"
                 strokeLinecap="round"
-                style={{ transition: 'stroke-opacity 0.2s, stroke-width 0.2s' }}
+                style={{ transition: 'stroke-opacity 0.18s, stroke-width 0.18s' }}
               />
-              {/* Dot at brain edge */}
               <circle
-                cx={bx} cy={by} r={isHov ? 3 : 2}
+                cx={bx} cy={by} r={2}
                 fill={meta.color}
-                fillOpacity={isHov ? 1 : 0.45}
-                style={{ transition: 'fill-opacity 0.2s, r 0.2s' }}
+                fillOpacity={isHov ? 0.9 : 0.35}
+                style={{ transition: 'fill-opacity 0.18s' }}
               />
             </g>
           )
@@ -112,10 +100,10 @@ export default function Brain({ connected, devices = {}, isOver, onClickConnecte
         style={{ left: CX - BRAIN_R, top: CY - BRAIN_R }}
       >
         <div className="brain-inner">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e8b4f8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" style={{ filter: 'drop-shadow(0 0 10px rgba(191,90,242,0.9))' }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" strokeWidth="1.6" strokeLinecap="round">
             <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="3" />
           </svg>
-          <span className="brain-label">SONUS</span>
+          <span className="brain-label">Sonus</span>
           {total > 0
             ? <span className="brain-count">{total} connected</span>
             : <span className="brain-hint">drop here</span>
@@ -145,38 +133,31 @@ export default function Brain({ connected, devices = {}, isOver, onClickConnecte
             style={{
               left: nx,
               top: ny,
-              '--node-color': meta.color,
-              background: isHov ? `${meta.color}1e` : `${meta.color}0d`,
-              borderColor: isHov ? meta.color : `${meta.color}50`,
-              boxShadow: isHov ? `0 0 12px ${meta.color}28, inset 0 0 8px ${meta.color}0a` : 'none',
             }}
             onClick={() => onClickConnected(item)}
             onMouseEnter={() => setHovered(id)}
             onMouseLeave={() => setHovered(null)}
           >
-            <IntegrationIcon integration={item} size={13} />
-            <span className="conn-node-name" style={{ color: isHov ? meta.color : `${meta.color}bb` }}>
+            <IntegrationIcon integration={item} size={12} />
+            <span className="conn-node-name" style={{ color: isHov ? meta.color : undefined }}>
               {label}
             </span>
             {status && (
-              <span
-                className="conn-node-status"
-                style={{
-                  fontSize: 9,
-                  marginLeft: 6,
-                  padding: '1px 5px',
-                  borderRadius: 3,
-                  background: statusIsOn ? 'rgba(34,197,94,0.15)' : 'rgba(255,255,255,0.08)',
-                  color: statusIsOn ? '#4ade80' : 'rgba(255,255,255,0.5)',
-                  fontWeight: 500,
-                  letterSpacing: '0.3px',
-                }}
-              >
+              <span style={{
+                fontSize: 9,
+                marginLeft: 4,
+                padding: '1px 5px',
+                borderRadius: 3,
+                background: statusIsOn ? 'rgba(34,197,94,0.1)' : 'rgba(255,255,255,0.05)',
+                color: statusIsOn ? '#22c55e' : 'rgba(255,255,255,0.35)',
+                fontFamily: "'DM Mono', monospace",
+                letterSpacing: '0.2px',
+              }}>
                 {status}
               </span>
             )}
             {isHov && (
-              <svg className="conn-node-gear" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke={meta.color} strokeWidth="2.5" strokeLinecap="round">
+              <svg className="conn-node-gear" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <circle cx="12" cy="12" r="3"/>
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
               </svg>

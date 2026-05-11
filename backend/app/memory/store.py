@@ -1,6 +1,6 @@
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 import dateparser
@@ -79,7 +79,7 @@ class MemoryStore:
             when,
             settings={
                 "PREFER_DATES_FROM": "future",
-                "RELATIVE_BASE": datetime.now(),
+                "RELATIVE_BASE": datetime.now(timezone.utc).replace(tzinfo=None),
             },
         )
         if parsed is None:
@@ -120,7 +120,7 @@ class MemoryStore:
             ]
 
     async def get_due_reminders(self) -> list[dict[str, Any]]:
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc).replace(tzinfo=None)
         async with async_session() as session:
             stmt = (
                 select(Reminder)
@@ -151,7 +151,7 @@ class MemoryStore:
                 record = existing.scalar_one_or_none()
                 if record:
                     record.state = state
-                    record.updated_at = datetime.utcnow()
+                    record.updated_at = datetime.now(timezone.utc).replace(tzinfo=None)
                 else:
                     record = DeviceStateRecord(
                         device_id=device_id,
@@ -217,7 +217,7 @@ class MemoryStore:
             )
             record = existing.scalar_one_or_none()
             if record:
-                await session.delete(record)
+                session.delete(record)
                 await session.commit()
                 return True
             return False

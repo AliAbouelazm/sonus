@@ -73,6 +73,17 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     twilio = TwilioIntegration()
     telegram = TelegramIntegration()
 
+    # Restore OAuth credentials saved in the UI so integrations work after restart
+    for cfg in integration_configs:
+        iid = cfg["integration_id"]
+        saved = cfg.get("config", {})
+        if iid == "spotify" and (saved.get("client_id") or saved.get("client_secret")):
+            spotify.set_oauth_credentials(saved.get("client_id", ""), saved.get("client_secret", ""))
+            logger.info("Restored Spotify credentials from DB")
+        elif iid == "google_calendar" and (saved.get("client_id") or saved.get("client_secret")):
+            calendar.set_oauth_credentials(saved.get("client_id", ""), saved.get("client_secret", ""))
+            logger.info("Restored Google Calendar credentials from DB")
+
     tool_executor = ToolExecutor(
         device_manager=device_manager,
         memory_store=memory_store,

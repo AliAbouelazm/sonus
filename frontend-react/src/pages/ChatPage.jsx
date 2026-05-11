@@ -114,7 +114,7 @@ function formatToolCall(msg) {
 
 const COLOR_TEMP_COLORS = { warm: '#ffb347', neutral: '#fff4e0', cool: '#87ceeb' }
 
-// ── Integration sidebar card ─────────────────────────────────────
+// Integration sidebar card
 function IntegrationCard({ config, devices }) {
   const integration = getById(config.integration_id)
   if (!integration) return null
@@ -511,18 +511,18 @@ export default function ChatPage({ mode = 'demo' }) {
         <div className="chat-messages">
           {messages.length === 0 && !isThinking && (
             <div className="chat-welcome">
-              <div className="welcome-orb">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" strokeWidth="1.5" strokeLinecap="round">
+              <div className="welcome-mark">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" strokeWidth="1.6" strokeLinecap="round">
                   <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
                 </svg>
               </div>
-              <div className="chat-welcome-title">SONUS</div>
+              <div className="chat-welcome-title">Sonus</div>
               <div className="chat-welcome-sub">
                 {status === 'connected'
-                  ? 'Your intelligent home assistant'
+                  ? 'Smart home, simplified.'
                   : status === 'connecting'
-                    ? 'Connecting…'
-                    : 'Reconnecting…'}
+                    ? 'Connecting...'
+                    : 'Reconnecting...'}
               </div>
               {status === 'connected' && (
                 <div className="welcome-suggestions">

@@ -15,17 +15,6 @@ function ModeConfirmModal({ direction, onConfirm, onCancel }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-header">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36, borderRadius: 8, background: toActive ? 'rgba(16,185,129,0.12)' : 'rgba(251,191,36,0.1)', flexShrink: 0 }}>
-            {toActive ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2a9 9 0 0 1 9 9c0 4.56-3.37 8.33-7.78 8.93L12 22l-1.22-2.07C6.37 19.33 3 15.56 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="#fbbf24"/>
-              </svg>
-            )}
-          </div>
           <div className="modal-title-group">
             <div className="modal-title">
               {toActive ? 'Switch to Active Mode' : 'Switch to Demo Mode'}
@@ -108,11 +97,11 @@ function AppContent() {
     <div className="app">
       <header className="header">
         <div className="header-logo">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ filter: 'drop-shadow(0 0 6px rgba(191,90,242,0.7))' }}>
-            <circle cx="12" cy="12" r="10" stroke="#bf5af2"/>
-            <circle cx="12" cy="12" r="3" stroke="#e8b4f8"/>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" strokeWidth="1.75" strokeLinecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="3"/>
           </svg>
-          <span className="header-logo-text">SONUS</span>
+          <span className="header-logo-text">Sonus</span>
         </div>
 
         <nav className="header-nav">

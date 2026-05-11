@@ -136,9 +136,8 @@ class Agent:
         )
 
     def _trimmed_history(self, max_messages: int = 30) -> list[dict[str, Any]]:
-        """Keep conversation history manageable by trimming old messages."""
         history = self.conversation_history[-max_messages:]
-        return [{"role": m["role"], "content": m["content"]} for m in history]
+        return [dict(m) for m in history]
 
     def clear_history(self) -> None:
         self.conversation_history.clear()

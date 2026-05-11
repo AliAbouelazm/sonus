@@ -285,6 +285,7 @@ export default function IntegrationsPage() {
 
       {modalIntegration && (
         <ConfigModal
+          key={modalExisting?.instance_id ?? modalIntegration.id}
           integration={modalIntegration}
           existingConfig={modalExisting}
           onSave={handleSave}
